@@ -1,13 +1,14 @@
 import datetime, re
 import googleapiclient.discovery
 import google.auth
+from keys import id
 
 
 # ①Google APIの準備をする
 SCOPES = ['https://www.googleapis.com/auth/calendar']
-calendar_id = 'takkngw.08.05@gmail.com' # 自身のGoogleカレンダーのIDを指定する
+calendar_id = id.id # 自身のGoogleカレンダーのIDを指定する
 # Googleの認証情報をファイルから読み込む
-gapi_creds = google.auth.load_credentials_from_file('/Users/goldenriver/Library/CloudStorage/OneDrive-東京電機大学/programming/Python/google_calendar/myproject77789-652df6b3bfe5.json', SCOPES)[0]
+gapi_creds = google.auth.load_credentials_from_file('/Users/goldenriver/Library/CloudStorage/OneDrive-東京電機大学/programming/Python/google_calendar/keys/myproject77789-652df6b3bfe5.json', SCOPES)[0]
 # APIと対話するためのResourceオブジェクトを構築する
 service = googleapiclient.discovery.build('calendar', 'v3', credentials=gapi_creds)
 
